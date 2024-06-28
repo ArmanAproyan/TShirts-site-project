@@ -4,7 +4,8 @@ import './style.css'
 const Container = () => {
   return (
     <div className='container'>
-        <div className="right_container"></div>
+       <div className="block_left"></div>
+       <div className="block_right"></div>
     </div>
   )
 }
