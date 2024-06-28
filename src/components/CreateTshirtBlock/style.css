@@ -10,6 +10,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
+
 }
 
 .create_text_block {
@@ -62,11 +64,12 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 100px;
   }
 
   .big_logo_img {
-    width: 500px;
-    height: 500px;
+    width: 450px;
+    height: 450px;
   }
 
   .big_logo_img:hover {
