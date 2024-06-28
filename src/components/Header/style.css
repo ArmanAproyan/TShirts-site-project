@@ -1,0 +1,96 @@
+.header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+}
+
+.logo_block {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_block {
+    width: 1000px;
+    height: 100px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0; 
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+    font-size: 25px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.navbar {
+    display: flex;
+    justify-content: center;
+    width: 600px;
+    height: 100px;
+    margin-left: 100px;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-item {
+    margin: 0 15px;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: black;
+    font-size:25px;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-item a:hover {
+    background-color: #575757;
+    color: #fff;
+    border-radius: 4px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.sign_in_block {
+    position: absolute;
+    right: 0;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-in-button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sign-in-button:hover {
+    background-color: #0056b3;
+}
