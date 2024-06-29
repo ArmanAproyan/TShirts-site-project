@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './style.css'
 import tshirtsColection from '../../tshirtsColections/tshirtsColection'
+import { useDispatch,useSelector } from 'react-redux'
+import { addToBasket, isIncludes  } from '../../features/MyBasketSlice/myBasketSlice'
 
 const Slider = () => {
 
@@ -10,6 +12,24 @@ const Slider = () => {
     marginCount: 0,
     margin: 0
   });
+  
+  const myBasket = useSelector((state) => state.myBasket);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log(myBasket)
+  },[myBasket])
+
+
+
+  const handleAddToBasket = (tshirt) => {
+    const index = myBasket.findIndex((val) => val.id == tshirt.id) 
+    if(index !== -1) {
+      dispatch(isIncludes(tshirt))
+    }else {
+      dispatch(addToBasket(tshirt))
+    }
+  }
 
 
   const handleStartDrag = (e) => {
@@ -67,8 +87,8 @@ const Slider = () => {
 
   return (
     <div className="slider_block">
-        <div draggable={true} onDragStart={handleStartDrag} onDragOver={handleDragOver} className="slider_change_cordinate"></div>
-      <div  style={{ marginLeft: sliderCordinats.margin + 'px' }} className="slider">
+      <div draggable={true} onDragStart={handleStartDrag} onDragOver={handleDragOver} className="slider_change_cordinate"></div>
+      <div style={{ marginLeft: sliderCordinats.margin + 'px' }} className="slider">
         {tshirtsColection.map((val) => {
           return (
             <div key={val.id} className="tshirts">
@@ -76,7 +96,7 @@ const Slider = () => {
                 <img src={val.img} alt="" />
               </div>
               <div className="buy_button_block">
-                <button className='buy_button'>Buy {val.price} $</button>
+                <button onClick={() => handleAddToBasket(val)} className='buy_button'>Buy ${val.price} </button>
               </div>
             </div>
           )
