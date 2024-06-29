@@ -1,6 +1,7 @@
 import React from 'react'
 import './style.css'
 import Logo from '../../../assets/logo.png'
+import { IoBasket } from "react-icons/io5";
 
 const Header = () => {
 
@@ -18,8 +19,8 @@ const Header = () => {
             </ul>
         </nav>
 
-        <div className="sign_in_block">
-            <div className="sign-in-button">Sign In</div>
+        <div className="basket_block">
+            <span className='basket_icone'> <IoBasket/> </span>
         </div>
     </div>
   )

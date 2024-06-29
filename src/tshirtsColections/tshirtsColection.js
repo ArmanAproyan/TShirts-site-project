@@ -11,7 +11,6 @@ import mayk10 from '../../assets/mayk10.png'
 
 
 const tshirtsColection = [
-    {id: 1, img: mayk1, price: 120},
     {id: 2, img: mayk2, price: 50},
     {id: 3, img: mayk3, price: 32},
     {id: 4, img: mayk4, price: 10},

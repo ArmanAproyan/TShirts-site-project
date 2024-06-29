@@ -1,13 +1,15 @@
 import React from 'react'
 import Header from './components/Header/Header'
 import CreateTshirtBlock from './components/CreateTshirtBlock/CreateTshirtBlock'
-import TshitsContainer from './components/TshirtContainer/TshirtContainer'
+import Slider from './components/Slider/Slider'
+import MainContainer from './components/MainContainer/MainContainer'
 const App = () => {
   return (
     <>
-    <Header/>
+    <MainContainer/>
+    {/* <Header/>
     <CreateTshirtBlock/>
-    <TshitsContainer/>
+    <Slider/> */}
     </>
   )
 }

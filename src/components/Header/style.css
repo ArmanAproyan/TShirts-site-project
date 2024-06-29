@@ -1,10 +1,10 @@
 .header {
     width: 100%;
-    height: 100px;
+    height: 80px;
     display: flex;
     position: fixed;
     background-color: white;
-    z-index: 1;
+    z-index: 3;
 }
 
 .logo_block {
@@ -70,30 +70,17 @@ ul {
     height: 50px;
 }
 
-.sign_in_block {
+.basket_block {
     position: absolute;
     right: 0;
     height: 100px;
+    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.sign-in-button {
-    background-color: black;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 0 15px;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.sign-in-button:hover {
-    background-color: #0056b3;
+.basket_icone {
+    font-size: 50px;
+    color:#ff7e5f;
 }
