@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './style.css'
 import tshirtsColection from '../../tshirtsColections/tshirtsColection'
-import { useDispatch,useSelector } from 'react-redux'
-import { addToBasket, isIncludes  } from '../../features/MyBasketSlice/myBasketSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToBasket, isIncludes } from '../../features/MyBasketSlice/myBasketSlice'
 
-const Slider = () => {
+const Slider = ({ scroll }) => {
 
   const [sliderCordinats, setSliderCordinats] = useState({
     initialCordinat: 0,
@@ -12,21 +12,24 @@ const Slider = () => {
     marginCount: 0,
     margin: 0
   });
-  
+
   const myBasket = useSelector((state) => state.myBasket);
   const dispatch = useDispatch();
+  const scrollRef = useRef()
+
 
   useEffect(() => {
-    console.log(myBasket)
-  },[myBasket])
 
+    scroll ? scrollRef.current.scrollIntoView({ behavior: 'smooth' }) : null
+
+  }, [scroll])
 
 
   const handleAddToBasket = (tshirt) => {
-    const index = myBasket.findIndex((val) => val.id == tshirt.id) 
-    if(index !== -1) {
+    const index = myBasket.findIndex((val) => val.id == tshirt.id)
+    if (index !== -1) {
       dispatch(isIncludes(tshirt))
-    }else {
+    } else {
       dispatch(addToBasket(tshirt))
     }
   }
@@ -86,7 +89,7 @@ const Slider = () => {
 
 
   return (
-    <div className="slider_block">
+    <div ref={scrollRef} className="slider_block">
       <div draggable={true} onDragStart={handleStartDrag} onDragOver={handleDragOver} className="slider_change_cordinate"></div>
       <div style={{ marginLeft: sliderCordinats.margin + 'px' }} className="slider">
         {tshirtsColection.map((val) => {
