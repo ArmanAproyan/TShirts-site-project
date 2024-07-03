@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './style.css'
 import Logo from '../../../assets/logo.png'
 import { IoBasket } from "react-icons/io5";
@@ -8,9 +8,11 @@ import { useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Header = ({ isOpen }) => {
+const Header = ({ isOpen, scroll }) => {
     const [basketCount, setBasketCount] = useState(0)
     const myBasket = useSelector((state) => state.myBasket);
+
+
 
     const handleChangeBasketCount = () => {
         const globalCont = myBasket.reduce((acc, val) => {
@@ -25,9 +27,9 @@ const Header = ({ isOpen }) => {
     }, [myBasket])
 
     return (
-        <div className='header'>
+        <div  className='header'>
             <ToastContainer />
-            <div className="logo_block">
+            <div onClick={scroll} className="logo_block">
                 <span><img className='logo' src={Logo} alt="" /></span>
             </div>
             <nav className="name_block">

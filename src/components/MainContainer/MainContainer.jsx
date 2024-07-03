@@ -8,12 +8,43 @@ import Footer from '../footer/Footer'
 
 const MainContainer = () => {
   const [basketModalIsOpen, setBasketModalIsOpen] = useState(false);
-  const [scroll, setScroll] = useState(false);
+  const [scroll, setScroll] = useState({
+    scrollSlider: false,
+    scrollMain: false
+  });
 
-  const handleScroll = () => {
-    setScroll(true)
+  const handleScrollSlider = () => {
+    setScroll((prevState) => {
+      return {
+        ...prevState,
+        scrollSlider: true
+      }
+    })
     setTimeout(() => {
-      setScroll(false)
+      setScroll((prevState) => {
+        return {
+          ...prevState,
+          scrollSlider: false
+        }
+      })
+    }, 0);
+  }
+
+
+  const handleScrollHeader = () => {
+    setScroll((prevState) => {
+      return {
+        ...prevState,
+        scrollMain: true
+      }
+    })
+    setTimeout(() => {
+      setScroll((prevState) => {
+        return {
+          ...prevState,
+          scrollMain: false
+        }
+      })
     }, 0);
   }
 
@@ -34,9 +65,9 @@ const MainContainer = () => {
   return (
     <div onClick={(e) => handleCloseBasketModal(e)} className="main_container">
       {basketModalIsOpen ? <BasketModal /> : null}
-      <Header isOpen={handleOpenBasketModal} />
-      <CreateTshirtBlock handleScroll={handleScroll} />
-      <Slider scroll={scroll} />
+      <Header scroll={handleScrollHeader} isOpen={handleOpenBasketModal} />
+      <CreateTshirtBlock scrollToMain={scroll.scrollMain} handleScroll={handleScrollSlider} />
+      <Slider scroll={scroll.scrollSlider} />
       <Footer />
     </div>
 
